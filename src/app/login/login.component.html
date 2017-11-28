@@ -1,0 +1,50 @@
+<div class="signin-content">
+  <mat-card color="primary" >
+    <mat-card-content>
+        <div class="example-container">
+            <!-- <form #f2="ngForm" (ngSubmit)="login(f2.value)" > -->
+            <mat-form-field>
+              <input matInput placeholder="Email"  [formControl]="email" required>
+              
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              
+            </mat-form-field> 
+            <mat-form-field>
+                <input matInput  placeholder="Senha" [formControl]="senha" [type]="hide ? 'password' : 'text'" >
+                <!-- <pre> {{ email | json}}</pre> -->
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </mat-form-field>
+             
+              <button mat-button mat-raised-button color='warn' (click)="login()"   >Login </button>
+              <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </div>
+      <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p>Please login to continue</p>
+        
+        <mat-input-container class="full-width-input">
+          <input mdInput placeholder="User" 
+                 formControlName="userName" required>
+          <mat-error *ngIf="isFieldInvalid('userName')">
+            Please inform your user name
+          </mat-error>
+        </mat-input-container>
+        <mat-input-container class="full-width-input">
+          <input mdInput type="password" placeholder="Password" 
+                 formControlName="password" required>
+          <mat-error *ngIf="isFieldInvalid('userName')">
+            Please inform your password
+          </mat-error>
+        </mat-input-container>
+        <button md-raised-button color="primary" type="submit">Login</button>
+      </form> -->
+    </mat-card-content>
+  </mat-card>
+  <mat-card-content>
+    <mat-card>
+        <pre>{{email.invalid}}</pre>
+      <pre>
+        {{form.valid|json}}
+      </pre>
+    </mat-card>
+  </mat-card-content>
+</div>
